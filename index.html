@@ -1,44 +1,70 @@
-<html>
-<style>
-    body {
-        background-image: url("https://cdn.wallpapersafari.com/9/78/09WgPM.jpg"); 
-        background-size: cover;
-        background-position: center center;
-    }
-</style>
-    <head>
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omat sivut</title>
+    <style>
+        body {
+            background-image: url("https://cdn.wallpapersafari.com/9/78/09WgPM.jpg"); 
+            background-size: cover;
+            background-position: center center;
+        }
 
-        <title>Omat sivut</title>
-    </head>
+        .clock {
+            font-size: 24px;
+            color: white;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock" id="timeDisplay"></div>
 
-    <body>
+    <h1>PORTFOLIO</h1>
+    <p>T√§ss√§ olisi eka "portfolio kuva".</p>
+    <img src="https://th.bing.com/th/id/OIP.t2k7-IH4nrFLREpofOw6UAHaHa?w=811&h=811&rs=1&pid=ImgDetMain" alt="CUTE PICTURE">
 
-        <h1>PORTFOLIO</h1>
+    <h2>Jatketan ihanaa portfoliota</h2>
+    <p>T√§ss√§ olisi toinen "portfolio kuva"</p>
+    <img src="https://play-lh.googleusercontent.com/l_Lm4yidvp_sfTkoDRdkF0lODJu72jkP4RfPqfPBlrk2X7b2qb0q88BUwt_7QzKSaLY" alt="CUTER PICTURE">
 
-        <p>T‰ss‰ olisi eka "portfolio kuva".</p>
+    <h3>Eik√∂h√§n jatketa taas matkaa ">.<"</h3>
+    <p>T√§ss√§ olisi kolmas "portfolio kuva"</p>
+    <img src="https://th.bing.com/th/id/OIP.BOK0Whdna7mY3ehabrQZLwHaJu?w=1170&h=1536&rs=1&pid=ImgDetMain" alt="CUTEST PICTURE">
 
-        <img src="https://th.bing.com/th/id/OIP.t2k7-IH4nrFLREpofOw6UAHaHa?w=811&h=811&rs=1&pid=ImgDetMain" alt="CUTE PICTURE">
+    <script>
+        function updateTime() {
+            var now = new Date();
+            var daysOfWeek = ["Sunnuntai", "Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai"];
+            var monthsOfYear = ["Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kes√§kuu", "Hein√§kuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu"];
 
-    </body>
+            var dayOfWeek = daysOfWeek[now.getDay()];
+            var day = now.getDate();
+            var month = monthsOfYear[now.getMonth()];
+            var year = now.getFullYear();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
 
-    <body>
+            // Formatted time: HH:MM:SS
+            if (minutes < 10) minutes = '0' + minutes;
+            if (seconds < 10) seconds = '0' + seconds;
 
-        <h2>Jatketan ihanaa portfoliota</h2>
+            var timeString = dayOfWeek + ', ' + day + ' ' + month + ' ' + year + ' ' + hours + ':' + minutes + ':' + seconds;
+            document.getElementById('timeDisplay').textContent = timeString;
+        }
 
-        <p>T‰ss‰ olisi toinen "portfolio kuva"</p>
+        // Update time every second
+        setInterval(updateTime, 1000);
 
-        <img src="https://play-lh.googleusercontent.com/l_Lm4yidvp_sfTkoDRdkF0lODJu72jkP4RfPqfPBlrk2X7b2qb0q88BUwt_7QzKSaLY" alt="CUTER PICTURE">
-
-    </body>
-
-    <body>
-
-        <h3>Eikˆh‰n jatketa taas matkaa ">.<"</h3>
-
-        <p>T‰ss‰ olisi kolmas "portfolio kuva"</p>
-
-        <img src="https://th.bing.com/th/id/OIP.BOK0Whdna7mY3ehabrQZLwHaJu?w=1170&h=1536&rs=1&pid=ImgDetMain" alt="CUTEST PICTURE">
-
-    </body>
-
+        // Initial call to display the time immediately
+        updateTime();
+    </script>
+</body>
 </html>
